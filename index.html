@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="CourtHub is an interactive basketball game dashboard built with HTML, CSS, and JavaScript.">
+  <title>CourtHub | Basketball Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-mark">CH</div>
+      <div>
+        <h1>CourtHub</h1>
+        <p>Basketball Game Center</p>
+      </div>
+    </div>
+
+    <nav aria-label="Main navigation">
+      <a href="#games">Games</a>
+      <a href="#favorites">Favorites</a>
+      <a href="#about">About</a>
+      <button id="themeToggle" class="icon-button" type="button" aria-label="Toggle dark mode">☾</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div>
+        <span class="eyebrow">YOUR DAILY HOOPS DASHBOARD</span>
+        <h2>Follow the games that matter to you.</h2>
+        <p>Search games, filter results, save favorites, and open detailed game information in one simple dashboard.</p>
+        <a class="primary-button" href="#games">Explore Games</a>
+      </div>
+      <div class="hero-card">
+        <span>Games Today</span>
+        <strong id="heroGameCount">0</strong>
+        <small>Updated from the demo schedule</small>
+      </div>
+    </section>
+
+    <section id="games" class="content-section">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">GAME CENTER</span>
+          <h2>Today's Schedule</h2>
+        </div>
+        <span id="resultCount" class="result-count">0 games</span>
+      </div>
+
+      <div class="controls">
+        <label class="search-box">
+          <span>⌕</span>
+          <input id="searchInput" type="search" placeholder="Search by team..." aria-label="Search games by team">
+        </label>
+
+        <div class="filters" role="group" aria-label="Game filters">
+          <button class="filter-button active" data-filter="all" type="button">All</button>
+          <button class="filter-button" data-filter="live" type="button">Live</button>
+          <button class="filter-button" data-filter="upcoming" type="button">Upcoming</button>
+          <button class="filter-button" data-filter="completed" type="button">Completed</button>
+        </div>
+      </div>
+
+      <div id="gameGrid" class="game-grid" aria-live="polite"></div>
+      <div id="emptyState" class="empty-state hidden">
+        <div class="empty-icon">🏀</div>
+        <h3>No games found</h3>
+        <p>Try another team name or change the game filter.</p>
+        <button id="clearSearch" class="secondary-button" type="button">Clear Search</button>
+      </div>
+    </section>
+
+    <section id="favorites" class="content-section favorites-section">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">SAVED GAMES</span>
+          <h2>Your Favorites</h2>
+        </div>
+        <span id="favoriteCount" class="result-count">0 saved</span>
+      </div>
+      <p class="section-description">Favorite a game to keep it easy to find. Favorites are saved in your browser.</p>
+    </section>
+
+    <section id="about" class="about-section">
+      <div>
+        <span class="eyebrow">ABOUT THE PROJECT</span>
+        <h2>A simple dashboard built with core web technologies.</h2>
+      </div>
+      <p>CourtHub is an original student project created with HTML, CSS, and JavaScript. It demonstrates dynamic content, filtering, search, localStorage, modals, theme switching, and responsive design without a framework.</p>
+    </section>
+  </main>
+
+  <div id="gameModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-backdrop" data-close-modal="true"></div>
+    <div class="modal-card">
+      <button id="closeModal" class="modal-close" type="button" aria-label="Close game details">×</button>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2026 CourtHub · Student Web Development Project</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
